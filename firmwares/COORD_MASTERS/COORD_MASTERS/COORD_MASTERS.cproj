@@ -354,6 +354,7 @@
       <Value>USART_CALLBACK_MODE=true</Value>
       <Value>SPI_CALLBACK_MODE=false</Value>
       <Value>aaENABLE_NETWORK_FREEZER</Value>
+      <Value>MESH_SECURITY</Value>
       <Value>NDEBUG</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
@@ -417,7 +418,7 @@
       <Value>../src/streetlight</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize most (-O3)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
@@ -571,232 +572,43 @@
   <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
   <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
   <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>STB_ON_SAL</Value>
-      <Value>ARM_MATH_CM0PLUS=true</Value>
-      <Value>__SAMR21G18A__</Value>
-      <Value>PROTOCOL_MESH</Value>
-      <Value>PDS_ENABLE_WEAR_LEVELING</Value>
-      <Value>SYSTICK_MODE</Value>
-      <Value>I2C_MASTER_CALLBACK_MODE=false</Value>
-      <Value>SAL_TYPE=AT86RF2xx</Value>
-      <Value>TC_ASYNC=true</Value>
-      <Value>BOARD=SAMR21_XPLAINED_PRO</Value>
-      <Value>PAN_COORDINATOR</Value>
-      <Value>EXTINT_CALLBACK_MODE=true</Value>
-      <Value>PHY_AT86RF233</Value>
-      <Value>USART_CALLBACK_MODE=true</Value>
-      <Value>SPI_CALLBACK_MODE=false</Value>
-      <Value>aaENABLE_NETWORK_FREEZER</Value>
-      <Value>DEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
-      <Value>../src/ASF/sam0/utils</Value>
-      <Value>../src/ASF/sam0/utils/header_files</Value>
-      <Value>../src/ASF/sam0/utils/preprocessor</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value>
-      <Value>../src/ASF/sam0/drivers/sercom</Value>
-      <Value>../src/ASF/sam0/drivers/system</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value>
-      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
-      <Value>../src/ASF/sam0/drivers/system/power</Value>
-      <Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
-      <Value>../src/ASF/sam0/boards</Value>
-      <Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/include</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
-      <Value>../src/ASF/sam0/drivers/extint</Value>
-      <Value>../src/ASF/sam0/drivers/tc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
-      <Value>../src/ASF/sam0/drivers/nvm</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value>
-      <Value>../src/config</Value>
-      <Value>../src/streetlight</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.symbols.DefSymbols><ListValues>
+  <Value>STB_ON_SAL</Value>
+  <Value>ARM_MATH_CM0PLUS=true</Value>
+  <Value>__SAMR21G18A__</Value>
+  <Value>PROTOCOL_MESH</Value>
+  <Value>PDS_ENABLE_WEAR_LEVELING</Value>
+  <Value>SYSTICK_MODE</Value>
+  <Value>I2C_MASTER_CALLBACK_MODE=false</Value>
+  <Value>SAL_TYPE=AT86RF2xx</Value>
+  <Value>TC_ASYNC=true</Value>
+  <Value>BOARD=SAMR21_XPLAINED_PRO</Value>
+  <Value>PAN_COORDINATOR</Value>
+  <Value>EXTINT_CALLBACK_MODE=true</Value>
+  <Value>PHY_AT86RF233</Value>
+  <Value>USART_CALLBACK_MODE=true</Value>
+  <Value>SPI_CALLBACK_MODE=false</Value>
+  <Value>aaENABLE_NETWORK_FREEZER</Value>
+  <Value>MESH_SECURITY</Value>
+  <Value>DEBUG</Value>
+</ListValues></armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths><ListValues><Value>../src/ASF/sam0/drivers/sercom/i2c</Value><Value>../src/ASF/sam0/utils</Value><Value>../src/ASF/sam0/utils/header_files</Value><Value>../src/ASF/sam0/utils/preprocessor</Value><Value>../src/ASF/thirdparty/CMSIS/Include</Value><Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value><Value>../src/ASF/common/utils</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value><Value>../src/ASF/sam0/drivers/sercom</Value><Value>../src/ASF/sam0/drivers/system</Value><Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value><Value>../src/ASF/sam0/drivers/system/clock</Value><Value>../src/ASF/sam0/drivers/system/interrupt</Value><Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value><Value>../src/ASF/sam0/drivers/system/pinmux</Value><Value>../src/ASF/sam0/drivers/system/power</Value><Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value><Value>../src/ASF/sam0/drivers/system/reset</Value><Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value><Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value><Value>../src/ASF/sam0/boards</Value><Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value><Value>../src/ASF/common/boards</Value><Value>../src/ASF/sam0/drivers/port</Value><Value>../src</Value><Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value><Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value><Value>../src/ASF/common/services/serial</Value><Value>../src/ASF/sam0/drivers/sercom/usart</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value><Value>../src/ASF/thirdparty/wireless/miwi/include</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value><Value>../src/ASF/thirdparty/wireless/services/trx_access</Value><Value>../src/ASF/common2/services/delay</Value><Value>../src/ASF/common2/services/delay/sam0</Value><Value>../src/ASF/sam0/drivers/sercom/spi</Value><Value>../src/ASF/sam0/drivers/extint</Value><Value>../src/ASF/sam0/drivers/tc</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value><Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value><Value>../src/ASF/thirdparty/wireless/services/nvm</Value><Value>../src/ASF/sam0/drivers/nvm</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value><Value>../src/config</Value><Value>../src/streetlight</Value></ListValues></armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
   <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
   <armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
-  <armgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libsam0_lib_hw_timer</Value>
-      <Value>libarm_cortexM0l_math</Value>
-      <Value>libsam0_miwi_mesh_panc</Value>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcc.linker.libraries.Libraries>
-  <armgcc.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh/sam0/gcc</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value>
-    </ListValues>
-  </armgcc.linker.libraries.LibrarySearchPaths>
+  <armgcc.linker.libraries.Libraries><ListValues><Value>libsam0_lib_hw_timer</Value><Value>libarm_cortexM0l_math</Value><Value>libsam0_miwi_mesh_panc</Value><Value>libm</Value></ListValues></armgcc.linker.libraries.Libraries>
+  <armgcc.linker.libraries.LibrarySearchPaths><ListValues><Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh/sam0/gcc</Value><Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value></ListValues></armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
   <armgcc.linker.memorysettings.ExternalRAM>False</armgcc.linker.memorysettings.ExternalRAM>
   <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/thirdparty/wireless/miwi/services/pds/src/wl/linkerscripts/samr21/gcc/samr21g18a_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
-  <armgcc.assembler.general.IncludePaths>
-    <ListValues>
-      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
-      <Value>../src/ASF/sam0/utils</Value>
-      <Value>../src/ASF/sam0/utils/header_files</Value>
-      <Value>../src/ASF/sam0/utils/preprocessor</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value>
-      <Value>../src/ASF/sam0/drivers/sercom</Value>
-      <Value>../src/ASF/sam0/drivers/system</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value>
-      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
-      <Value>../src/ASF/sam0/drivers/system/power</Value>
-      <Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
-      <Value>../src/ASF/sam0/boards</Value>
-      <Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/include</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
-      <Value>../src/ASF/sam0/drivers/extint</Value>
-      <Value>../src/ASF/sam0/drivers/tc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
-      <Value>../src/ASF/sam0/drivers/nvm</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </armgcc.assembler.general.IncludePaths>
-  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+  <armgcc.assembler.general.IncludePaths><ListValues><Value>../src/ASF/sam0/drivers/sercom/i2c</Value><Value>../src/ASF/sam0/utils</Value><Value>../src/ASF/sam0/utils/header_files</Value><Value>../src/ASF/sam0/utils/preprocessor</Value><Value>../src/ASF/thirdparty/CMSIS/Include</Value><Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value><Value>../src/ASF/common/utils</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value><Value>../src/ASF/sam0/drivers/sercom</Value><Value>../src/ASF/sam0/drivers/system</Value><Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value><Value>../src/ASF/sam0/drivers/system/clock</Value><Value>../src/ASF/sam0/drivers/system/interrupt</Value><Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value><Value>../src/ASF/sam0/drivers/system/pinmux</Value><Value>../src/ASF/sam0/drivers/system/power</Value><Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value><Value>../src/ASF/sam0/drivers/system/reset</Value><Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value><Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value><Value>../src/ASF/sam0/boards</Value><Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value><Value>../src/ASF/common/boards</Value><Value>../src/ASF/sam0/drivers/port</Value><Value>../src</Value><Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value><Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value><Value>../src/ASF/common/services/serial</Value><Value>../src/ASF/sam0/drivers/sercom/usart</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value><Value>../src/ASF/thirdparty/wireless/miwi/include</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value><Value>../src/ASF/thirdparty/wireless/services/trx_access</Value><Value>../src/ASF/common2/services/delay</Value><Value>../src/ASF/common2/services/delay/sam0</Value><Value>../src/ASF/sam0/drivers/sercom/spi</Value><Value>../src/ASF/sam0/drivers/extint</Value><Value>../src/ASF/sam0/drivers/tc</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value><Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value><Value>../src/ASF/thirdparty/wireless/services/nvm</Value><Value>../src/ASF/sam0/drivers/nvm</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value><Value>../src/config</Value></ListValues></armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DBOARD=SAMR21_XPLAINED_PRO -DENABLE_NETWORK_FREEZER -DEXTINT_CALLBACK_MODE=true -DI2C_MASTER_CALLBACK_MODE=false -DOTAU_ENABLED -DPAN_COORDINATOR -DPDS_ENABLE_WEAR_LEVELING -DPHY_AT86RF233 -DPROTOCOL_MESH -DSAL_TYPE=AT86RF2xx -DSPI_CALLBACK_MODE=false -DSTB_ON_SAL -DSYSTICK_MODE -DTC_ASYNC=true -DUSART_CALLBACK_MODE=true -D__SAMR21G18A__</armgcc.preprocessingassembler.general.AssemblerFlags>
-  <armgcc.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
-      <Value>../src/ASF/sam0/utils</Value>
-      <Value>../src/ASF/sam0/utils/header_files</Value>
-      <Value>../src/ASF/sam0/utils/preprocessor</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-      <Value>../src/ASF/common/utils</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value>
-      <Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value>
-      <Value>../src/ASF/sam0/drivers/sercom</Value>
-      <Value>../src/ASF/sam0/drivers/system</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value>
-      <Value>../src/ASF/sam0/drivers/system/clock</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt</Value>
-      <Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value>
-      <Value>../src/ASF/sam0/drivers/system/pinmux</Value>
-      <Value>../src/ASF/sam0/drivers/system/power</Value>
-      <Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset</Value>
-      <Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
-      <Value>../src/ASF/sam0/boards</Value>
-      <Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value>
-      <Value>../src/ASF/common/boards</Value>
-      <Value>../src/ASF/sam0/drivers/port</Value>
-      <Value>../src</Value>
-      <Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
-      <Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
-      <Value>../src/ASF/common/services/serial</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/usart</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/include</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
-      <Value>../src/ASF/common2/services/delay</Value>
-      <Value>../src/ASF/common2/services/delay/sam0</Value>
-      <Value>../src/ASF/sam0/drivers/sercom/spi</Value>
-      <Value>../src/ASF/sam0/drivers/extint</Value>
-      <Value>../src/ASF/sam0/drivers/tc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
-      <Value>../src/ASF/sam0/drivers/nvm</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value>
-      <Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value>
-      <Value>../src/config</Value>
-    </ListValues>
-  </armgcc.preprocessingassembler.general.IncludePaths>
+  <armgcc.preprocessingassembler.general.IncludePaths><ListValues><Value>../src/ASF/sam0/drivers/sercom/i2c</Value><Value>../src/ASF/sam0/utils</Value><Value>../src/ASF/sam0/utils/header_files</Value><Value>../src/ASF/sam0/utils/preprocessor</Value><Value>../src/ASF/thirdparty/CMSIS/Include</Value><Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value><Value>../src/ASF/common/utils</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/include</Value><Value>../src/ASF/sam0/utils/cmsis/samr21/source</Value><Value>../src/ASF/sam0/drivers/sercom</Value><Value>../src/ASF/sam0/drivers/system</Value><Value>../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1</Value><Value>../src/ASF/sam0/drivers/system/clock</Value><Value>../src/ASF/sam0/drivers/system/interrupt</Value><Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr21</Value><Value>../src/ASF/sam0/drivers/system/pinmux</Value><Value>../src/ASF/sam0/drivers/system/power</Value><Value>../src/ASF/sam0/drivers/system/power/power_sam_d_r_h</Value><Value>../src/ASF/sam0/drivers/system/reset</Value><Value>../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h</Value><Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value><Value>../src/ASF/sam0/boards</Value><Value>../src/ASF/sam0/boards/samr21_xplained_pro</Value><Value>../src/ASF/common/boards</Value><Value>../src/ASF/sam0/drivers/port</Value><Value>../src</Value><Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value><Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value><Value>../src/ASF/common/services/serial</Value><Value>../src/ASF/sam0/drivers/sercom/usart</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/miwi_mesh</Value><Value>../src/ASF/thirdparty/wireless/miwi/include</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/stb/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/wl</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc/nv/External</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/pds/inc</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/sys</Value><Value>../src/ASF/thirdparty/wireless/services/trx_access</Value><Value>../src/ASF/common2/services/delay</Value><Value>../src/ASF/common2/services/delay/sam0</Value><Value>../src/ASF/sam0/drivers/sercom/spi</Value><Value>../src/ASF/sam0/drivers/extint</Value><Value>../src/ASF/sam0/drivers/tc</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value><Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value><Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value><Value>../src/ASF/thirdparty/wireless/services/nvm</Value><Value>../src/ASF/sam0/drivers/nvm</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/notify</Value><Value>../src/ASF/thirdparty/wireless/miwi/services/otau/upgrade</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac</Value><Value>../src/ASF/thirdparty/wireless/miwi/source/mimac/phy</Value><Value>../src/config</Value></ListValues></armgcc.preprocessingassembler.general.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
 </ArmGcc>
     </ToolchainSettings>

@@ -38,6 +38,7 @@ static void appDataInd(RECEIVED_MESH_MESSAGE *ind)
 	AppPacket_t *msg = (AppPacket_t *)ind->payload;
 	
 	/* Rec Message */
+	/* WorkShop */
 	switch (msg->packet_type)
 	{
 		case PACKET_COMMAND:
@@ -81,6 +82,7 @@ static void appDataSendingTimerHandler(SYS_Timer_t *timer)
 
 static void appDataConf(uint8_t msgConfHandle, miwi_status_t status, uint8_t* msgPointer)
 {
+	/* WorkShop */
 	if (SUCCESS == status)
 	{
 		if (!appNetworkStatus)
@@ -107,6 +109,7 @@ static void appDataConf(uint8_t msgConfHandle, miwi_status_t status, uint8_t* ms
 
 static void appSendData(void)
 {
+	/* WorkShop */
 	uint16_t shortAddressLocal = 0xFFFF;
 	uint16_t dstAddr = 0; /* PAN Coordinator Address */
 	appMsg.unique_id = UNIQUE_ID;
@@ -198,21 +201,13 @@ static void APP_TaskHandler(void)
 			appInit();
 		}
 		break;
-		#if defined(PAN_COORDINATOR)
-		case APP_STATE_START_NETWORK:
-		{
-			MiApp_StartConnection(START_CONN_DIRECT, APP_SCAN_DURATION, CHANNEL_MAP, Connection_Confirm);
-			appState = APP_STATE_SEND;
-		}
-		break;
-		#else
+
 		case APP_STATE_CONNECT_NETWORK:
 		{
 			MiApp_SearchConnection(APP_SCAN_DURATION, CHANNEL_MAP, searchConfim);
 			appState = APP_STATE_CONNECTING_NETWORK;
 		}
 		break;
-		#endif
 
 		case APP_STATE_SEND:
 		{

@@ -44,7 +44,10 @@ static void Connection_Confirm(miwi_status_t status);
 uint16_t dst_addr = 0x0;
 uint16_t unique_id = 0x0;
 
+uint16_t buffer[2][10];
+
 uint8_t flag_busy = 0x0;
+uint8_t verify_cycle = 0x0;
 
 static char cmd[12];
 static uint8_t index_serial = 0;
@@ -123,13 +126,24 @@ static void appDataInd(RECEIVED_MESH_MESSAGE *ind)
 		if (flag_busy == 0x0)
 		{
 			flag_busy = 0x1;
-			printf("@D;%d;%d;%d;%d;", msg->unique_id, msg->value, msg->temp, msg->hum);
+			printf("#%d;%d;%d;%d\n", msg->unique_id, msg->value, msg->temp, msg->hum);
 		
 			/* Received a CMD Request */
 			dst_addr = ind->sourceAddress;
 			unique_id = msg->unique_id;
 		
 			appState = APP_STATE_SEND_CMD;
+		}
+		else
+		{
+			uint8_t i = 0;
+			while (i < 10 && buffer[0][i] != 0x0)
+			{
+				i++;
+			}
+
+			buffer[0][i] = ind->sourceAddress;
+			buffer[1][i] = msg->unique_id;
 		}
 		break;
 	
@@ -211,6 +225,7 @@ static void app_cmd_conf(uint8_t msgConfHandle, miwi_status_t status, uint8_t* m
 #ifdef DEBUG
 		printf("Success to send cmd!\n\r");
 #endif
+		appState = APP_STATE_VERIFY_NEXT_CMD;
 	}
 	else
 	{
@@ -236,7 +251,6 @@ static void app_cmd_conf(uint8_t msgConfHandle, miwi_status_t status, uint8_t* m
 static void appSendData(void)
 {
     uint16_t shortAddressLocal = 0xFFFF;
-    //uint16_t shortAddressPanId = 0xFFFF;
     uint16_t dstAddr = 0; /* PAN Coordinator Address */
 
 
@@ -342,6 +356,35 @@ static void APP_TaskHandler(void)
 		appState = APP_STATE_WAIT_CONF;
 	}
 	break;
+	
+	case APP_STATE_VERIFY_NEXT_CMD:
+	{
+		if (verify_cycle < 250)
+		{
+			verify_cycle++;
+		}
+		else
+		{
+			verify_cycle = 0x0;
+			uint8_t i = 0;
+			while (i < 10 && buffer[0][i] == 0x0)
+			{
+				i++;
+			}
+			
+			if (i == 10)
+			{
+				appState = APP_STATE_WAIT_CONF;
+			}
+			else
+			{
+				unique_id = buffer[1][i];
+				dst_addr = buffer[0][i];
+				appState = APP_STATE_VERIFY_NEXT_CMD;
+			}
+			
+		}
+	}
 
 	case APP_STATE_SEND:
 	{
@@ -390,10 +433,12 @@ void wsndemo_init(void)
 	uint64_t invalidIEEEAddr;
 	
 	memset(&cmd, 0x0, 12);
-	memset(&commands, 0x02, 30);
+	memset(&commands, 0x02, sizeof(commands));
+	memset(&buffer, 0x00, sizeof(buffer));
 
-    MiApp_SubscribeReConnectionCallback((ReconnectionCallback_t)ReconnectionIndication );
+    MiApp_SubscribeReConnectionCallback((ReconnectionCallback_t) ReconnectionIndication);
 	MiApp_ProtocolInit(&defaultParamsRomOrRam, &defaultParamsRamOnly);
+	MiApp_Set(CHANNEL, (uint8_t *) 11);
 	
 	/* Check if a valid IEEE address is available. */
 	memcpy((uint8_t *)&ieeeAddr, (uint8_t *)&myLongAddress, LONG_ADDR_LEN);
@@ -432,6 +477,9 @@ static void Connection_Confirm(miwi_status_t status)
 		#ifdef DEBUG
 		printf("Connected!\n\r");
 		#endif
+		uint8_t channel;
+		MiApp_Get(CHANNEL, &channel);
+		printf("Connected to channel: %d\n\r", channel);
         appState = APP_STATE_WAIT_CONF;
 	}
 	else

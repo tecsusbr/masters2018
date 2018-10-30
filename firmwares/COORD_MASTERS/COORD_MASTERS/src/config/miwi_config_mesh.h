@@ -1,39 +1,3 @@
-/**
-* \file  miwi_config_mesh.h
-*
-* \brief Configuration file for MiWi Mesh Protocol.
-*
-* Copyright (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-*
-* \asf_license_start
-*
-* \page License
-*
-* Subject to your compliance with these terms, you may use Microchip
-* software and any derivatives exclusively with Microchip products. 
-* It is your responsibility to comply with third party license terms applicable 
-* to your use of third party software (including open source software) that 
-* may accompany Microchip software.
-*
-* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, 
-* WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, 
-* INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, 
-* AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT WILL MICROCHIP BE 
-* LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL OR CONSEQUENTIAL 
-* LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND WHATSOEVER RELATED TO THE 
-* SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS BEEN ADVISED OF THE 
-* POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE FULLEST EXTENT 
-* ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN ANY WAY 
-* RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY, 
-* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*
-* \asf_license_stop
-*
-*/
-/*
-* Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
-*/
-
 #ifndef __CONFIGURE_MESH_H
 #define __CONFIGURE_MESH_H
 
@@ -58,10 +22,12 @@
 	#endif
 
     /* Public Key of the Network. It is preinstalled key on all MiWi Mesh Devices  */
-    #define PUBLIC_KEY_DEFAULT  {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F}
+    //#define PUBLIC_KEY_DEFAULT  {0x01, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F}
+	#define PUBLIC_KEY_DEFAULT  {0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F}
 
     /* Network Key, Key Decided by PAN Coordinator. This is the key used by default  */
-    #define NETWORK_KEY_DEFAULT {0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF}
+    //#define NETWORK_KEY_DEFAULT {0x01, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF}
+	#define NETWORK_KEY_DEFAULT {0x11, 0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78, 0x89, 0x9A, 0xAB, 0xBC, 0xCD, 0xDE, 0xEF, 0xF0}
 
 	/* Interval between keep alive message transmission in seconds for coordinator */
 	#define KEEP_ALIVE_COORDINATOR_SEND_INTERVAL    120

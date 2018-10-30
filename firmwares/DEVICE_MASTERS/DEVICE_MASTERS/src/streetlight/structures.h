@@ -1,7 +1,9 @@
 #ifndef STRUCTURES_H_
 #define STRUCTURES_H_
 
+
 COMPILER_PACK_SET(1)
+
 typedef enum PacketType_t {
 	PACKET_COMMAND,
 	PACKET_DATA,
@@ -37,6 +39,7 @@ typedef enum AppState_t {
 	/* CUSTOMS STATES */
 	APP_STATE_NO_DEFINED,
 	APP_STATE_SEND_CMD,
+	APP_STATE_VERIFY_NEXT_CMD,
 } AppState_t;
 COMPILER_PACK_RESET()
 

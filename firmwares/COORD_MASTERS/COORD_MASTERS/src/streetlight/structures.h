@@ -14,8 +14,8 @@ typedef struct AppPacket_t {
 	uint16_t unique_id;
 	uint16_t short_addr;
 	uint16_t parent_addr;
-	uint8_t command;
-	uint8_t value;
+	uint8_t packet_type;
+	uint8_t light;
 	uint8_t temp;
 	uint8_t hum;
 	uint8_t refresh_rate;
@@ -39,6 +39,7 @@ typedef enum AppState_t {
 	/* CUSTOMS STATES */
 	APP_STATE_NO_DEFINED,
 	APP_STATE_SEND_CMD,
+	APP_STATE_VERIFY_NEXT_CMD,
 } AppState_t;
 COMPILER_PACK_RESET()
 

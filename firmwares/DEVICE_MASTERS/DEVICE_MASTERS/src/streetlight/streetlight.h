@@ -3,7 +3,7 @@
 #include "board.h"
 #include "sysTimer.h"
 
-#define UNIQUE_ID	1
+#define UNIQUE_ID	2
 
 #define APP_SCAN_DURATION 10
 void strlight_init(void);
