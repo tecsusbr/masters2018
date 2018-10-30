@@ -120,13 +120,17 @@ static void appDataInd(RECEIVED_MESH_MESSAGE *ind)
 	AppPacket_t *msg = (AppPacket_t *)ind->payload;
 
 	/* Rec Message */
-	switch (msg->command)
+	switch (msg->packet_type)
 	{	
 	case PACKET_DATA:
 		if (flag_busy == 0x0)
 		{
 			flag_busy = 0x1;
-			printf("#%d;%d;%d;%d\n", msg->unique_id, msg->value, msg->temp, msg->hum);
+			if (commands[msg->unique_id] != 2 && commands[msg->unique_id] != msg->light)
+			{
+				msg->light = commands[msg->unique_id];
+			}
+			printf("#%d;%d;%d;%d\n", msg->unique_id, msg->light, msg->temp, msg->hum);
 		
 			/* Received a CMD Request */
 			dst_addr = ind->sourceAddress;
@@ -278,14 +282,14 @@ static void appSendData(void)
 
 static void app_send_cmd(void)
 {
-	appMsg.command = PACKET_COMMAND;
+	appMsg.packet_type = PACKET_COMMAND;
 	if (unique_id == 99)
 	{
-		appMsg.value = commands[1];
+		appMsg.light = commands[1];
 	}
 	else
 	{
-		appMsg.value = commands[unique_id];
+		appMsg.light = commands[unique_id];
 	}
 
 	appMsg.unique_id = unique_id;
