@@ -3,8 +3,9 @@
 #include "board.h"
 #include "sysTimer.h"
 
-#define UNIQUE_ID	2
-
+/* Your information here */
+#define UNIQUE_ID				2		// Unique ID
+#define TRANSMISSION_TIME		30		// In seconds
 #define APP_SCAN_DURATION 10
 void strlight_init(void);
 void strlight_task(void);

@@ -15,14 +15,12 @@
 /*- Variables --------------------------------------------------------------*/
 static AppState_t appState = APP_STATE_INITIAL;
 
-static SYS_Timer_t appNetworkStatusTimer;
 static bool appNetworkStatus;
-
 
 static AppPacket_t appMsg;
 SYS_Timer_t appDataSendingTimer;
 static uint8_t wsnmsghandle;
-
+static uint8_t try_again = 0x0;
 
 void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 static void Connection_Confirm(miwi_status_t status);
@@ -36,32 +34,9 @@ bool reconnectStatus = false;
 static void appDataInd(RECEIVED_MESH_MESSAGE *ind)
 {
 	AppPacket_t *msg = (AppPacket_t *)ind->payload;
+	/* Received Message */
+	/* Your code here... */
 	
-	/* Rec Message */
-	/* WorkShop */
-	switch (msg->packet_type)
-	{
-		case PACKET_COMMAND:
-		/* Received a CMD Request */
-#ifdef DEBUG
-		printf("Received packet cmd [%d] - %d\n\r", msg->unique_id, msg->light);
-#endif
-		if ((msg->unique_id == UNIQUE_ID || msg->unique_id == 99) && msg->light < 2)
-		{
-			port_pin_set_output_level(LED_0_PIN, !msg->light);
-		}
-		break;
-		
-		case PACKET_DATA:
-		printf("@D;%d;%d;%d;%d;", msg->unique_id, msg->light, msg->temp, msg->hum);
-		#ifdef DEBUG
-		printf("\n\r");
-		#endif
-		break;
-
-		default:
-		break;
-	}
 }
 
 /*****************************************************************************
@@ -82,59 +57,13 @@ static void appDataSendingTimerHandler(SYS_Timer_t *timer)
 
 static void appDataConf(uint8_t msgConfHandle, miwi_status_t status, uint8_t* msgPointer)
 {
-	/* WorkShop */
-	if (SUCCESS == status)
-	{
-		if (!appNetworkStatus)
-		{
-			SYS_TimerStop(&appNetworkStatusTimer);
-			appNetworkStatus = true;
-		}
-	}
-	else
-	{
-		if (appNetworkStatus)
-		{
-			SYS_TimerStart(&appNetworkStatusTimer);
-			appNetworkStatus = false;
-		}
-	}
-
-	if (APP_STATE_WAIT_CONF == appState)
-	{
-		appState = APP_STATE_SENDING_DONE;
-	}
+	/* Your code here... */
 }
 
 
 static void appSendData(void)
 {
-	/* WorkShop */
-	uint16_t shortAddressLocal = 0xFFFF;
-	uint16_t dstAddr = 0; /* PAN Coordinator Address */
-	appMsg.unique_id = UNIQUE_ID;
-
-	/* Change this! */
-
-	appMsg.temp = rand() & 0x7f;
-	appMsg.hum = rand() & 0x7f;
-	appMsg.packet_type = PACKET_DATA;
-	appMsg.light = !port_pin_get_output_level(LED_0_PIN);
-
-	/* Get Short address */
-	MiApp_Get(SHORT_ADDRESS, (uint8_t *)&shortAddressLocal);
-	appMsg.short_addr = shortAddressLocal;
-	appMsg.parent_addr = MiApp_MeshGetNextHopAddr(PAN_COORDINATOR_SHORT_ADDRESS);
-
-	if (MiApp_SendData(2, (uint8_t *)&dstAddr, sizeof(appMsg), (uint8_t *)&appMsg, wsnmsghandle, true, appDataConf))
-	{
-		++wsnmsghandle;
-		appState = APP_STATE_WAIT_CONF;
-	}
-	else
-	{
-		appState = APP_STATE_SENDING_DONE;
-	}
+	/* Your code here... */
 }
 
 void appLinkFailureCallback(void)
@@ -182,7 +111,7 @@ static void Connection_Confirm(miwi_status_t status)
 
 static void appInit(void)
 {
-	appDataSendingTimer.interval = 30000;
+	appDataSendingTimer.interval = TRANSMISSION_TIME * 1000;
 	appDataSendingTimer.mode = SYS_TIMER_INTERVAL_MODE;
 	appDataSendingTimer.handler = appDataSendingTimerHandler;
 
@@ -254,7 +183,7 @@ void strlight_init(void)
 		uint8_t* peui64 = (uint8_t *)&myLongAddress;
 		for(i = 0; i<MY_ADDRESS_LENGTH; i++)
 		{
-			*peui64++ = (uint8_t)rand();
+			*peui64++ = (uint8_t) rand();
 		}
 		memcpy((uint8_t *)&ieeeAddr, (uint8_t *)&myLongAddress, LONG_ADDR_LEN);
 	}
